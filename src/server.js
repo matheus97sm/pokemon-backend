@@ -6,15 +6,13 @@ const routes = require("./routes");
 
 const server = express();
 
-mongoose.connect(
-  "mongodb+srv://matheus97sm:@Hirotho1@@cluster0-6f7a5.mongodb.net/pokemon?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true
+});
 
 server.use(cors());
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
 server.use(routes);
 
 server.listen(process.env.PORT || 3333);

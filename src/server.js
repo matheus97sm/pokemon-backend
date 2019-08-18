@@ -15,4 +15,4 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(routes);
 
-server.listen(process.env.PORT || 3333);
+server.listen(process.env.PORT || 3000);
